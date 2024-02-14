@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+    <title>Detalle Electrodomestico</title>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/bootstrap.min.css" />
+
+</h:head>
+<h:body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">Menos de 10 unidades</h3>
+                        <c:if test="${not empty  electrodomesticoBean.electrodomestico}">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-text">El electrodoméstico #{electrodomesticoBean.electrodomestico.nombre} de la marca #{electrodomesticoBean.electrodomestico.marca} y modelo #{electrodomesticoBean.electrodomestico.modelo}
+                                        cuenta con #{electrodomesticoBean.electrodomestico.cantidad} por lo que se debe sacar de bodega más unidades.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </c:if>
+
+                        <h:panelGrid columns="5" styleClass="table">
+                            <h:column>Ordinal</h:column>
+                            <h:column>Nombre</h:column>
+                            <h:column>Marca</h:column>
+                            <h:column>Modelo</h:column>
+                            <h:column>Unidades en Stock</h:column>
+                            <c:forEach items="#{electrodomesticoBean.electrodomesticosMenosDe10Unidades}" var="electrodomestico" varStatus="loop">
+                                <h:outputText value="#{loop.index + 1}" />
+                                <h:outputText value="#{electrodomestico.nombre}" />
+                                <h:outputText value="#{electrodomestico.marca}" />
+                                <h:outputText value="#{electrodomestico.modelo}" />
+                                <h:outputText value="#{electrodomestico.cantidad}" />
+                            </c:forEach>
+                        </h:panelGrid>
+
+                    </div>
+                    <h:link outcome="/index.xhtml" class="btn btn-success" value="Ir a Inicio"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>

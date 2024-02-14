@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Detalle de Electrodoméstico</title>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/bootstrap.min.css" />
+</h:head>
+<h:body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">Detalle de Electrodoméstico</h3>
+                        <p class="card-text">Nombre: #{electrodomesticoBean.electrodomestico.nombre}</p>
+                        <p class="card-text">Marca: #{electrodomesticoBean.electrodomestico.marca}</p>
+                        <p class="card-text">Modelo: #{electrodomesticoBean.electrodomestico.modelo}</p>
+                        <p class="card-text">Fecha de Elaboración: #{electrodomesticoBean.electrodomestico.fecha}</p>
+                        <h:form>
+                            <h:commandButton value="Volver" styleClass="btn btn-primary" action="index.xhtml"/>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>
